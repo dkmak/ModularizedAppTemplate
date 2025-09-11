@@ -1,11 +1,14 @@
 [versions]
 agp = "8.12.0"
 kotlin = "2.2.10"
-ktx = "1.9.0"
 androidxCore = "1.17.0"
 androidxLifecycle = "2.9.2"
 androidxActivity = "1.10.1"
 compose-bom = "2022.10.00" ## if you don't want to manage a set of depenencies, you can manage a bom and then you won't need the to provide the verion ref
+androidxTestJunit = "1.2.1"
+espresso = "3.5.1"
+junit = "4.13.2"
+
 
 
 [libraries]
@@ -19,6 +22,13 @@ androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graph
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview"}
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidxTestJunit" }
+androidx-espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4"}
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest"}
+
+# unit test
+junit = { module = "junit:junit", version.ref = "junit" }
 
 
 [plugins]
