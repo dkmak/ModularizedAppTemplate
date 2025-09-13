@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -54,6 +55,8 @@ android {
 
 dependencies {
     implementation(libs.androidx.core)
+
+    // compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.ui)
@@ -61,6 +64,12 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+
+    // dependency injection
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    androidTestImplementation(libs.hilt.testing)
+    kspAndroidTest(libs.hilt.compiler)
 
     testImplementation(libs.junit)
 
@@ -70,7 +79,4 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
 
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-
-    // retrofit
-
 }
