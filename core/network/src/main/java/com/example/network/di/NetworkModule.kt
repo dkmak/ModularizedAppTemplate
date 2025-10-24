@@ -18,7 +18,6 @@ import kotlinx.serialization.json.Json
 internal object NetworkModule {
 
     // understand this
-
     @Provides
     @Singleton
     fun provideJson(): Json = Json {

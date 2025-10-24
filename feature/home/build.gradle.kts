@@ -14,7 +14,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
@@ -45,19 +45,16 @@ android {
 }
 
 dependencies {
-    api(project(":core:data")) // I want to build this as deps
-    api(project(":core:model")) // I want to build this as deps
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(project(":core:data")) // I want to build this as deps
 
     implementation(libs.androidx.core)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     implementation(libs.androidx.lifecycle.viewModelCompose)
     implementation(libs.androidx.hilt.navigation.compose)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso)

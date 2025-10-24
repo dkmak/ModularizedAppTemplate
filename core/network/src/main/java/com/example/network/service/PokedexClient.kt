@@ -8,7 +8,7 @@ import javax.inject.Inject
 class PokedexClient @Inject constructor(
     private val pokedexService: PokedexService
 ) { // describe the client/service relationship
-    suspend fun fetchPokemonList(page: Int): Response<PokemonResponse>{
+    suspend fun fetchPokemonList(page: Int): PokemonResponse {
      return pokedexService.fetchPokemonList(
          limit = PAGING_SIZE,
          offset = page * PAGING_SIZE

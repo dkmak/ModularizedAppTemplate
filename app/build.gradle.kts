@@ -4,7 +4,6 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.hilt.plugin)
     alias(libs.plugins.ksp)
-
 }
 
 android {
@@ -48,28 +47,17 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-
-    kotlin {
-        sourceSets.configureEach {
-            kotlin.srcDir(layout.buildDirectory.files("generated/ksp/$name/kotlin/"))
-        }
-        sourceSets.all {
-            languageSettings {
-                languageVersion = "2.0"
-            }
-        }
-    }
 }
 
 dependencies {
-    api(project(":feature:home"))
+    implementation(project(":feature:home"))
     implementation(libs.androidx.core)
 
     // compose
@@ -80,6 +68,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+
+    implementation(libs.androidx.hilt.navigation.compose)
 
     // dependency injection
     implementation(libs.hilt.android)

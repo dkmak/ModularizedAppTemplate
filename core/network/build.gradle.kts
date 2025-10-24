@@ -27,14 +27,14 @@ android {
 }
 
 dependencies {
-    api(project(":core:model"))
+    implementation(project(":core:model"))
     implementation(libs.kotlinx.coroutines.android)
 
     // networking
     implementation(platform(libs.retrofit.bom))
     implementation(platform (libs.okhttp.bom))
 
-    api(libs.retrofit)
+    implementation(libs.retrofit)
     // This is the Retrofit converter for serialization
     implementation(libs.retrofit.kotlinx.serialization)
     implementation(libs.kotlinx.serialization.json)
