@@ -8,13 +8,16 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-
+import com.example.core.common.ui.R
+import com.example.core.common.ui.theme.Green
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -27,7 +30,10 @@ fun Home(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Pokedex Home") },
+                title = { Text(text = stringResource(R.string.home_title)) },
+                colors = TopAppBarDefaults.topAppBarColors().copy(
+                    containerColor = Green
+                )
             )
         }
     ) { paddingValues ->
