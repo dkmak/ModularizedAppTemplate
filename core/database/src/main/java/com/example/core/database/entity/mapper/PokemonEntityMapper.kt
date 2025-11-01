@@ -13,7 +13,7 @@ object PokemonEntityMapper : EntityMapper<List<PokemonEntity>, List<Pokemon>> {
         return domain.map { pokemon ->
             PokemonEntity(
                 page = pokemon.page,
-                name = pokemon.name,
+                name = pokemon.nameField,
                 url = pokemon.url
             )
         }
@@ -23,7 +23,7 @@ object PokemonEntityMapper : EntityMapper<List<PokemonEntity>, List<Pokemon>> {
         return entity.map{ entity ->
             Pokemon(
                 page = entity.page,
-                name = entity.name,
+                nameField = entity.name,
                 url = entity.url
             )
         }

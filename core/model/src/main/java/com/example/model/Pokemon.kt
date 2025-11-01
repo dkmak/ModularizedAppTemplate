@@ -9,10 +9,16 @@ import kotlinx.serialization.Serializable
 @Parcelize
 @Serializable
 data class Pokemon(
-  var page: Int = 0,
-  @SerialName("name")
-  val name: String,
+    var page: Int = 0,
+    @SerialName("name")
+    val nameField: String,
+    @SerialName("url")
+    val url: String
+) : Parcelable { // figure out how this fits in, and why this needs a getter
 
-  @SerialName("url")
-  val url: String
-): Parcelable
+    val name: String
+        get() = nameField.replaceFirstChar { it.uppercase() }
+
+    val pokedexIndex: String
+        get() = url.split("/".toRegex()).dropLast(1).last()
+}

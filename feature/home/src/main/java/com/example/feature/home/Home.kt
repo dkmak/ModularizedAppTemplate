@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -27,7 +28,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.core.common.ui.R
 import com.example.core.common.ui.theme.Green
 import com.example.model.Pokemon
-import kotlinx.coroutines.flow.compose
 import kotlinx.coroutines.flow.distinctUntilChanged
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -37,6 +37,7 @@ fun Home(
 ) {
 
     val pokemonList by homeViewModel.pokemonList.collectAsStateWithLifecycle()
+    val listState = rememberLazyListState()
 
     Scaffold(
         topBar = {
@@ -50,28 +51,9 @@ fun Home(
     ) { paddingValues ->
             HomeContent(
                 modifier = Modifier.padding(paddingValues),
-                pokemonList = pokemonList
-            ) {
-                homeViewModel.fetchNextPokemonList()
-            }
-    }
-}
-
-@Composable
-fun HomeContent(
-    modifier: Modifier = Modifier,
-    pokemonList: List<Pokemon>,
-    onFetchNextPokemonList: () -> Unit
-){
-
-    val listState = rememberLazyListState()
-    LazyColumn(
-        modifier = modifier,
-        state = listState
-    ) {
-        items(pokemonList) { pokemon ->
-            PokemonListItem(pokemon)
-        }
+                pokemonList = pokemonList,
+                listState = listState
+            )
     }
 
     LaunchedEffect(listState, pokemonList) {
@@ -86,8 +68,25 @@ fun HomeContent(
             .distinctUntilChanged()
             .collect { shouldFetch ->
                 if (shouldFetch){
-                    onFetchNextPokemonList()
+                    homeViewModel.fetchNextPokemonList()
                 }
+            }
+    }
+}
+
+@Composable
+fun HomeContent(
+    modifier: Modifier = Modifier,
+    pokemonList: List<Pokemon>,
+    listState: LazyListState
+){
+
+    LazyColumn(
+        modifier = modifier,
+        state = listState
+    ) {
+        items(pokemonList) { pokemon ->
+            PokemonListItem(pokemon)
         }
     }
 }
@@ -107,8 +106,9 @@ fun PokemonListItem(pokemon: Pokemon){
 
                 )
         ){
+            val formattedString = "#${pokemon.pokedexIndex}: ${pokemon.name}"
             Text(
-                text = pokemon.name,
+                text = formattedString,
                 modifier = Modifier.padding(16.dp)
             )
         }
