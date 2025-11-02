@@ -2,6 +2,7 @@ package com.example.feature.home
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -32,7 +33,8 @@ import com.example.model.Pokemon
 fun HomeContent(
     modifier: Modifier = Modifier,
     pokemonList: List<Pokemon>,
-    listState: LazyListState
+    listState: LazyListState,
+    onPokemonClicked: (Int) -> Unit
 ) {
 
     LazyColumn(
@@ -40,13 +42,19 @@ fun HomeContent(
         state = listState
     ) {
         items(pokemonList) { pokemon ->
-            PokemonListItem(pokemon)
+            PokemonListItem(
+                pokemon,
+                onPokemonClicked = { onPokemonClicked(pokemon.pokedexIndex.toInt()) }
+            )
         }
     }
 }
 
 @Composable
-fun PokemonListItem(pokemon: Pokemon) {
+fun PokemonListItem(
+    pokemon: Pokemon,
+    onPokemonClicked: () -> Unit
+) {
     Row(
         modifier = Modifier
             .padding(16.dp)
@@ -59,6 +67,7 @@ fun PokemonListItem(pokemon: Pokemon) {
                     shape = RoundedCornerShape(16.dp)
 
                 )
+                .clickable(onClick = onPokemonClicked)
         ) {
             Row(
                 modifier = Modifier
@@ -102,7 +111,8 @@ fun PreviewHomeContent(){
                 nameField = "Pikachu",
                 url ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
             )),
-            listState = rememberLazyListState()
+            listState = rememberLazyListState(),
+            onPokemonClicked = {}
         )
     }
 }

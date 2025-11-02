@@ -22,7 +22,8 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Home(
-    homeViewModel: HomeViewModel = hiltViewModel()
+    homeViewModel: HomeViewModel = hiltViewModel(),
+    onPokemonClicked: (Int) -> Unit
 ) {
 
     val pokemonList by homeViewModel.pokemonList.collectAsStateWithLifecycle()
@@ -41,7 +42,8 @@ fun Home(
         HomeContent(
             modifier = Modifier.padding(paddingValues),
             pokemonList = pokemonList,
-            listState = listState
+            listState = listState,
+            onPokemonClicked = onPokemonClicked
         )
     }
 

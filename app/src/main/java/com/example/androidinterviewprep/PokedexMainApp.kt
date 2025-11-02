@@ -29,7 +29,11 @@ fun PokedexMainApp() {
                 startDestination = PokedexNavigationRoute.Home.route
             ) {
                 composable(route = PokedexNavigationRoute.Home.route) {
-                    Home()
+                    Home(
+                        onPokemonClicked = {
+                            navController.navigate(PokedexNavigationRoute.Profile.route)
+                        }
+                    )
                 }
 
                 composable(route = PokedexNavigationRoute.Profile.route) {

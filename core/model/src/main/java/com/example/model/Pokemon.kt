@@ -19,8 +19,8 @@ data class Pokemon(
     val name: String
         get() = nameField.replaceFirstChar { it.uppercase() }
 
-    val pokedexIndex: String
-        get() = url.split("/".toRegex()).dropLast(1).last()
+    val pokedexIndex: Int
+        get() = url.split("/".toRegex()).dropLast(1).last().toInt()
 
     val spriteUrl: String
         inline get() = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/" +
