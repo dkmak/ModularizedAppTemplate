@@ -37,7 +37,11 @@ fun PokedexMainApp() {
                 }
 
                 composable(route = PokedexNavigationRoute.Profile.route) {
-                    Profile()
+                    Profile(
+                        onBackClicked = {
+                            navController.popBackStack()
+                        }
+                    )
                 }
             }
         }
