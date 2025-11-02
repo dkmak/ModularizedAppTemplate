@@ -20,6 +20,7 @@ appcompat = "1.7.1"
 material = "1.13.0"
 androidxRoom = "2.7.2"
 coil = "2.6.0"
+androidxNavigation = "2.7.7"
 
 
 
@@ -34,6 +35,7 @@ androidx-compose-ui = { group = "androidx.compose.ui", name = "ui"}
 androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics"}
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview"}
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3"}
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidxTestJunit" }

@@ -55,6 +55,7 @@ android {
 
 dependencies {
     implementation(project(":feature:home"))
+    implementation(project(":feature:profile"))
     implementation(project(":core:common-ui"))
 
     implementation(libs.androidx.core)
