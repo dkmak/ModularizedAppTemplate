@@ -2,6 +2,8 @@ package com.example.core.data.di
 
 import com.example.core.data.repository.home.HomeRepository
 import com.example.core.data.repository.home.HomeRepositoryImpl
+import com.example.core.data.repository.profile.ProfileRepository
+import com.example.core.data.repository.profile.ProfileRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -12,4 +14,7 @@ import dagger.hilt.components.SingletonComponent
 internal interface DataModule { // why internal?
     @Binds
     fun bindHomeRepository(homeRepositoryImpl: HomeRepositoryImpl): HomeRepository
+
+    @Binds
+    fun bindProfileRepository(profileRepositoryImpl: ProfileRepositoryImpl): ProfileRepository
 }

@@ -34,14 +34,14 @@ class HomeRepositoryImpl @Inject constructor(
                 }
                 pokemonDao.insertPokemonList(pagedPokemonList.asEntity())
 
-                emit(pokemonDao.getAllPokemonList(page).asDomain())
+                emit(pokemonDao.getPokemonList(page).asDomain())
             } catch (e: Exception){
 
                 Log.d("HomeRepository", "fetchPokemonList: ${e.message}")
                 emit(emptyList())
             }
         } else {
-            emit(pokemonDao.getAllPokemonList(page).asDomain())
+            emit(pokemonDao.getPokemonList(page).asDomain())
         }
     }.flowOn(ioDispatcher)
 }

@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+
 import com.example.androidinterviewprep.navigation.PokedexNavigationRoute
 import com.example.core.common.ui.theme.AndroidInterviewPrepTheme
 import com.example.feature.home.Home
@@ -30,14 +31,21 @@ fun PokedexMainApp() {
             ) {
                 composable(route = PokedexNavigationRoute.Home.route) {
                     Home(
-                        onPokemonClicked = {
-                            navController.navigate(PokedexNavigationRoute.Profile.route)
+                        onPokemonClicked = { pokemonId ->
+                            navController.navigate(PokedexNavigationRoute.Profile.createRoute(pokemonId))
                         }
                     )
                 }
 
-                composable(route = PokedexNavigationRoute.Profile.route) {
+                composable(
+                    route = PokedexNavigationRoute.Profile.route,
+                    arguments = PokedexNavigationRoute.Profile.arguments
+                ) { navBackStackEntry ->
+                    // error handle 0
+                    //val pokemonId = navBackStackEntry.arguments?.getInt(POKEMON_ID_ARG) ?: 0
+
                     Profile(
+                        // pokemonIndex = pokemonId,
                         onBackClicked = {
                             navController.popBackStack()
                         }

@@ -1,16 +1,27 @@
 package com.example.androidinterviewprep.navigation
 
+import androidx.navigation.NamedNavArgument
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
+import com.example.core.common.ui.navigation.POKEMON_ID_ARG
+
 /*
 class PokedexNavigationRoute {
 }*/
-
 sealed interface PokedexNavigationRoute {
+    val route: String
 
-    // does this need to be serializable?
+    val arguments: List<NamedNavArgument>
+        get() = emptyList()
+
     data object Home : PokedexNavigationRoute {
-        val route = "home"
+        override val route = "home"
     }
     data object Profile : PokedexNavigationRoute {
-        val route = "profile"
+        override val route = "profile/{$POKEMON_ID_ARG}"
+        override val arguments: List<NamedNavArgument>
+            = listOf(navArgument(POKEMON_ID_ARG) {type = NavType.IntType})
+
+        fun createRoute(pokemonId: Int) = "profile/$pokemonId"
     }
 }

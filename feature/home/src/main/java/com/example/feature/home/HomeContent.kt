@@ -44,7 +44,7 @@ fun HomeContent(
         items(pokemonList) { pokemon ->
             PokemonListItem(
                 pokemon,
-                onPokemonClicked = { onPokemonClicked(pokemon.pokedexIndex.toInt()) }
+                onPokemonClicked = { onPokemonClicked(pokemon.pokedexIndex) }
             )
         }
     }

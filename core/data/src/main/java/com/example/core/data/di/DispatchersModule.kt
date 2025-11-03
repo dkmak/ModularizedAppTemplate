@@ -1,4 +1,4 @@
-package com.example.network.di
+package com.example.core.data.di
 
 import dagger.Module
 import dagger.Provides
@@ -13,4 +13,3 @@ object DispatchersModule {
     @Provides
     fun provideIoDispatcher(): CoroutineDispatcher = Dispatchers.IO
 }
-
