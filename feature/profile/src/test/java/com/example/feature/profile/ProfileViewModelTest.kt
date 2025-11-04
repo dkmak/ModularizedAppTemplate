@@ -60,7 +60,7 @@ class ProfileViewModelTest {
         val pokemonInfo = viewModel.pokemonInfo.value
         Assert.assertEquals("Pikachu", pokemonInfo.name)
         Assert.assertEquals(25, pokemonInfo.pokedexIndex)
-        
+
         job.cancel()
     }
 

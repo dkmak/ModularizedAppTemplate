@@ -1,9 +1,6 @@
 package com.example.feature.profile
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.add
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -12,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -45,9 +43,10 @@ fun ProfileContent(
             model = pokemon.animatedUrl,
             contentDescription = pokemon.name,
             imageLoader = imageLoader,
+            error = painterResource(id = R.drawable.pokeball_ic),
             modifier = Modifier
                 .size(128.dp)
-                .padding(16.dp)
+                .padding(top =16.dp)
         )
 
         Text(

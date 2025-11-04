@@ -6,7 +6,9 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -29,12 +31,6 @@ class HomeViewModelTest {
     fun setup(){
         Dispatchers.setMain(testDispatcher)
         homeRepository = mockk()
-
-        coEvery { homeRepository.fetchPokemonList(any()) } returns flowOf(
-            listOf(Pokemon(nameField = "Bulbasaur", url = "url/1/"))
-        )
-
-        viewModel = HomeViewModel(homeRepository)
     }
 
 
@@ -45,6 +41,11 @@ class HomeViewModelTest {
 
     @Test
     fun `pokemonList state emits data from repository`() = runTest {
+        coEvery { homeRepository.fetchPokemonList(any()) } returns flowOf(
+            listOf(Pokemon(nameField = "Bulbasaur", url = "url/1/"))
+        )
+        viewModel = HomeViewModel(homeRepository)
+
         val job = launch(testDispatcher) { viewModel.pokemonList.collect{} }
         advanceUntilIdle()
 
@@ -63,6 +64,7 @@ class HomeViewModelTest {
 
         coEvery { homeRepository.fetchPokemonList(0) } returns flowOf(page0_Pokemon)
         coEvery { homeRepository.fetchPokemonList(1) } returns flowOf(page1_Pokemon)
+        viewModel = HomeViewModel(homeRepository)
 
         val job = launch(testDispatcher) { viewModel.pokemonList.collect{} }
 
@@ -72,6 +74,26 @@ class HomeViewModelTest {
 
         val latestPokemonList = viewModel.pokemonList.first()
         Assert.assertEquals("Ivysaur", latestPokemonList[0].nameField)
+        job.cancel()
+    }
+
+    @Test
+    fun `isLoading is true during fetch and false after it completes`() = runTest{
+        coEvery { homeRepository.fetchPokemonList(any()) } returns flow {
+            delay(100)
+            emit(listOf(Pokemon(nameField = "Bulbasaur", url = "url/1/")))
+        }
+
+        viewModel = HomeViewModel(homeRepository)
+
+        val job = launch(testDispatcher) { viewModel.pokemonList.collect{} }
+        testDispatcher.scheduler.runCurrent() // run tasks that are ready to execute right now
+
+        Assert.assertTrue("isLoading should be true immediately after collection starts.", viewModel.isLoading.value)
+        advanceUntilIdle()
+
+
+        Assert.assertFalse("isLoading should be false after data is emitted.", viewModel.isLoading.value)
         job.cancel()
     }
 }

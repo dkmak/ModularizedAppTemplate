@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForwardIos
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,6 +35,7 @@ fun HomeContent(
     modifier: Modifier = Modifier,
     pokemonList: List<Pokemon>,
     listState: LazyListState,
+    isLoading: Boolean,
     onPokemonClicked: (Int) -> Unit
 ) {
 
@@ -46,6 +48,19 @@ fun HomeContent(
                 pokemon,
                 onPokemonClicked = { onPokemonClicked(pokemon.pokedexIndex) }
             )
+        }
+
+        item {
+            if (isLoading) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
+                }
+            }
         }
     }
 }
@@ -112,6 +127,20 @@ fun PreviewHomeContent(){
                 url ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
             )),
             listState = rememberLazyListState(),
+            isLoading = false,
+            onPokemonClicked = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewHomeLoading(){
+    AndroidInterviewPrepTheme {
+        HomeContent(
+            pokemonList = emptyList(),
+            listState = rememberLazyListState(),
+            isLoading = true,
             onPokemonClicked = {}
         )
     }

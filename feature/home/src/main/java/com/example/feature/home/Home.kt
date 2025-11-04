@@ -27,6 +27,8 @@ fun Home(
 ) {
 
     val pokemonList by homeViewModel.pokemonList.collectAsStateWithLifecycle()
+    val isLoading by homeViewModel.isLoading.collectAsStateWithLifecycle()
+
     val listState = rememberLazyListState()
 
     Scaffold(
@@ -43,6 +45,7 @@ fun Home(
             modifier = Modifier.padding(paddingValues),
             pokemonList = pokemonList,
             listState = listState,
+            isLoading = isLoading,
             onPokemonClicked = onPokemonClicked
         )
     }
