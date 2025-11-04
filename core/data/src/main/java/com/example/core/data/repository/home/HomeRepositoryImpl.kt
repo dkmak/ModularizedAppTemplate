@@ -24,7 +24,7 @@ class HomeRepositoryImpl @Inject constructor(
         try {
             val response = pokedexClient.fetchPokemonList(page = page)
             val networkPokemon = response.results.map { it.copy(page = page) }
-            
+
             pokemonDao.insertPokemonList(networkPokemon.asEntity())
 
         } catch (e: Exception) {

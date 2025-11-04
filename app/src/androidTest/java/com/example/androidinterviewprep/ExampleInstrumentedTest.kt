@@ -21,4 +21,6 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.androidinterviewprep", appContext.packageName)
     }
+
+    // best to put E2E tests here for navigation, etc.
 }

@@ -27,7 +27,7 @@ class ProfileViewModel @Inject constructor(
            profileRepository.getPokemonById(index)
         }.stateIn(
             scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5_000), // what is this
+            started = SharingStarted.WhileSubscribed(5_000),
             initialValue = Pokemon(
                 page = 0,
                 nameField = "Unknown Pokemon",

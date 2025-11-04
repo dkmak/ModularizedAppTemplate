@@ -3,35 +3,6 @@ package com.example.core.database.entity.mapper
 import com.example.core.database.entity.PokemonEntity
 import com.example.model.Pokemon
 
-/*interface EntityMapper<Entity, Domain> {
-    fun asEntity(domain: Domain): Entity
-    fun asDomain(entity: Entity): Domain
-}
-
-object PokemonEntityMapper : EntityMapper<List<PokemonEntity>, List<Pokemon>> {
-    override fun asEntity(domain: List<Pokemon>): List<PokemonEntity> {
-        return domain.map { pokemon ->
-            PokemonEntity(
-                pokedexIndex = pokemon.pokedexIndex,
-                page = pokemon.page,
-                name = pokemon.nameField,
-                url = pokemon.url
-            )
-        }
-    }
-
-    override fun asDomain(entity: List<PokemonEntity>): List<Pokemon> {
-        return entity.map{ entity ->
-            Pokemon(
-                page = entity.page,
-                nameField = entity.name,
-                url = entity.url
-            )
-        }
-    }
-}*/
-
-
 /**
  * Converts a domain model [Pokemon] to a database [PokemonEntity].
  */

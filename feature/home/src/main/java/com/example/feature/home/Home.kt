@@ -53,7 +53,7 @@ fun Home(
             if (lastVisibleItem == null || pokemonList.isEmpty()) {
                 false
             } else {
-                lastVisibleItem.index >= (pokemonList.size - 8)
+                lastVisibleItem.index >= (pokemonList.size - POKEMON_LIST_BUFFER)
             }
         }
             .distinctUntilChanged()
@@ -64,3 +64,5 @@ fun Home(
             }
     }
 }
+
+const val POKEMON_LIST_BUFFER = 8

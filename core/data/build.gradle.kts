@@ -26,8 +26,6 @@ dependencies {
 
     implementation(libs.androidx.core)
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso)
 
     // dependency injection
     implementation(libs.hilt.android)
