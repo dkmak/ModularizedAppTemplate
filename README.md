@@ -7,6 +7,7 @@ gets display list on the Home Screen. Users can click on a Pokemon from the list
 to the profile page and pulls that individual Pokemon's information from the local database and displays that to the user.
 
 More Information About Pokemon API
+
 https://pokeapi.co/
 
 https://pokeapi.co/docs/v2#resource-listspagination-section
