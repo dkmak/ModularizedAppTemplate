@@ -8,7 +8,7 @@ information from the local database and displays that to the user.
 
 ### Design Overview
 #### General Project Structure (Multi-Modular)
-Multi-modular project setup enforces separation of concerns, improves build times, and helps reusability
+Multi-modular project setup enforces separation of concerns, improves build times, and helps reusability.
 
 ```
 app - Assembles all the feauture modules, defines navigation graph, houses the MainActivity
@@ -18,7 +18,7 @@ app - Assembles all the feauture modules, defines navigation graph, houses the M
 core - Core components shared by all features
     common-ui - shared UI components, elements, themes, colors, resources, strings some navigation components
         - res (drawables, themes)
-    data - implements the Repository pattern, create single source of truth
+    data - implements the Repository pattern, create the single source of truth for the UI
         - HomeRepository
         - HomeRepositoryImpl
         - ProfileRepository
