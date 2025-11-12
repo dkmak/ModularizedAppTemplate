@@ -32,7 +32,7 @@ class HomeViewModel @Inject constructor(
             .onCompletion { _isLoading.value = false }
     }.stateIn(
         scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(5_000), // what is this
+        started = SharingStarted.WhileSubscribed(5_000),
         initialValue = emptyList(),
     )
 

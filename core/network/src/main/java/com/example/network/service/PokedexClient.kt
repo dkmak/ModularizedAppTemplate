@@ -1,10 +1,8 @@
 package com.example.network.service
 
 import com.example.network.model.PokemonResponse
-import retrofit2.Response
 import javax.inject.Inject
 
-// the service is injected into the client
 class PokedexClient @Inject constructor(
     private val pokedexService: PokedexService
 ) {
