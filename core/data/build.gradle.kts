@@ -19,8 +19,9 @@ android {
 
 dependencies {
     implementation(project(":core:network"))
+    implementation(project(":core:database"))
     api(project(":core:model"))
-    api(project(":core:database"))
+
 
     implementation(libs.retrofit)
 

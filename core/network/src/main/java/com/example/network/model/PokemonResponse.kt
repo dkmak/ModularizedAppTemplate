@@ -1,9 +1,11 @@
 package com.example.network.model
 
 import com.example.model.Pokemon
+import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+// @InternalSerializationApi // investigate why this annotation is recommended?
 @Serializable
 data class PokemonResponse(
     @SerialName(value = "count") val count: Int,

@@ -42,7 +42,7 @@ class HomeViewModelTest {
     @Test
     fun `pokemonList state emits data from repository`() = runTest {
         coEvery { homeRepository.fetchPokemonList(any()) } returns flowOf(
-            listOf(Pokemon(nameField = "Bulbasaur", url = "url/1/"))
+            Result.success(listOf(Pokemon(nameField = "Bulbasaur", url = "url/1/")))
         )
         viewModel = HomeViewModel(homeRepository)
 
@@ -62,8 +62,8 @@ class HomeViewModelTest {
         val page0_Pokemon = listOf(Pokemon(nameField = "Bulbasaur", url = "url/1/"))
         val page1_Pokemon = listOf(Pokemon(nameField = "Ivysaur", url = "url/2/"))
 
-        coEvery { homeRepository.fetchPokemonList(0) } returns flowOf(page0_Pokemon)
-        coEvery { homeRepository.fetchPokemonList(1) } returns flowOf(page1_Pokemon)
+        coEvery { homeRepository.fetchPokemonList(0) } returns flowOf(Result.success(page0_Pokemon))
+        coEvery { homeRepository.fetchPokemonList(1) } returns flowOf(Result.success(page1_Pokemon))
         viewModel = HomeViewModel(homeRepository)
 
         val job = launch(testDispatcher) { viewModel.pokemonList.collect{} }
@@ -81,7 +81,7 @@ class HomeViewModelTest {
     fun `isLoading is true during fetch and false after it completes`() = runTest{
         coEvery { homeRepository.fetchPokemonList(any()) } returns flow {
             delay(100)
-            emit(listOf(Pokemon(nameField = "Bulbasaur", url = "url/1/")))
+            emit(Result.success(listOf(Pokemon(nameField = "Bulbasaur", url = "url/1/"))))
         }
 
         viewModel = HomeViewModel(homeRepository)

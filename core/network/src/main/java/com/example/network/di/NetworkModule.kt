@@ -31,7 +31,7 @@ internal object NetworkModule {
             .build()
     }
 
-    @Provides // provide the implementation this object
+    @Provides
     @Singleton
     fun provideRetrofit(json: Json, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
