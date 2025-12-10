@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.compileOnly
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -22,4 +24,6 @@ dependencies {
 
     // kotlinx
     api(libs.kotlinx.immutable.collection)
+
+    compileOnly(libs.androidx.compose.runtime.annotation)
 }

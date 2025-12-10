@@ -73,5 +73,6 @@ Testing: Junit, `kotlinx-coroutines-test`, `mockk` for mocking Repositories
 
 
 #### Potential Improvements
+- Better UI State Management
 - Separation of Domain Objects and How They Are Used
 - Additional Unit Testing in Networking Layer
