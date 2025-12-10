@@ -60,12 +60,12 @@ MVVM App Architecture - separate view from business logic from data
 
 
 #### Libraries and Tools
-UI: Jetpack Compose, Compose Navigation, Coil (for GIF loading)
-Dependency Injection: Dagger Hilt
-Database: Room
-Networking: Retrofit (and OkHTTP by extension), Kotlinx.Serialization for parsing JSON
-Coroutines for asynchronous tasks
-Testing: Junit, `kotlinx-coroutines-test`, `mockk` for mocking Repositories
+- UI: Jetpack Compose, Compose Navigation, Coil
+- Dependency Injection: Dagger Hilt
+- Local Database: Room
+- Networking: Retrofit (and OkHTTP by extension), Kotlinx.Serialization for serializing JSON
+- Coroutines for asynchronous tasks
+- Testing: Junit, `kotlinx-coroutines-test`, `mockk`
 
 #### Things of Note
 - Unit Testing
