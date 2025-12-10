@@ -54,7 +54,7 @@ MVVM App Architecture - separate view from business logic from data
   - "Dumb" Content Holders: They just display data and handle click events
 - ViewModels (Domain Layer): ViewModels contain the presentation logic and handle user events
   - isLoading
-  - determines ~when~ to fetch data
+  - determines when to fetch data
 - Data Layer: Uses the Repository pattern to abstract where the data is coming from 
   - fetches the data and determines the correct way to process and restore it
 
