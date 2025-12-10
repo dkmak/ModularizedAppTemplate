@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Immutable
 @Serializable
 data class Pokemon(
-    var page: Int = 0,
+    val page: Int = 0,
     @SerialName("name")
     val nameField: String,
     @SerialName("url")
