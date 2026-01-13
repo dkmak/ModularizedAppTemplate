@@ -38,21 +38,14 @@ fun HomeContent(
     isLoading: Boolean,
     onPokemonClicked: (Int) -> Unit
 ) {
-
     LazyColumn(
         modifier = modifier,
         state = listState
     ) {
-        items(pokemonList,
-            key = {pokemon -> pokemon.pokedexIndex}
+        items(
+            pokemonList,
+            key = { pokemon -> pokemon.pokedexIndex } // reduces compositions
         ) { pokemon ->
-            /*
-            * If we did
-            * onPokemonClicked = { onPokemonClicked(pokemon.pokedexIndex) }
-            * a new lambda instance is created, which can trigger recomposition
-            * Instead, pass the index inside PokemonListItem, and create the lambda there
-            * to avoid unnecessary recomposition
-            * */
             PokemonListItem(
                 pokemon,
                 onPokemonClicked = onPokemonClicked,
@@ -85,9 +78,6 @@ fun PokemonListItem(
         modifier = Modifier
             .padding(16.dp)
     ) {
-        /* Construct the final lambda inside its own clickable modifier.
-         This makes the lambda passed from the parent more stable, and reduces recomposition
-         */
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -132,14 +122,16 @@ fun PokemonListItem(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewHomeContent(){
+fun PreviewHomeContent() {
     PokedexAppTheme {
         HomeContent(
-            pokemonList = listOf(Pokemon(
-                page = 0,
-                nameField = "Pikachu",
-                url ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-            )),
+            pokemonList = listOf(
+                Pokemon(
+                    page = 0,
+                    nameField = "Pikachu",
+                    url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                )
+            ),
             listState = rememberLazyListState(),
             isLoading = false,
             onPokemonClicked = {}
@@ -149,7 +141,7 @@ fun PreviewHomeContent(){
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewHomeLoading(){
+fun PreviewHomeLoading() {
     PokedexAppTheme {
         HomeContent(
             pokemonList = emptyList(),

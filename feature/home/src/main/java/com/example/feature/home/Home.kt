@@ -52,10 +52,10 @@ fun Home(
     LaunchedEffect(listState, pokemonList) {
         snapshotFlow {
             val lastVisibleItem = listState.layoutInfo.visibleItemsInfo.lastOrNull()
-            if (lastVisibleItem == null || pokemonList.isEmpty()) {
+            if (pokemonList.isEmpty()) {
                 false
             } else {
-                lastVisibleItem.index >= (pokemonList.size - POKEMON_LIST_BUFFER)
+                (lastVisibleItem?.index ?: 0) >= (pokemonList.size - POKEMON_LIST_BUFFER)
             }
         }
             .distinctUntilChanged()

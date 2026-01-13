@@ -5,9 +5,11 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.example.core.common.ui.navigation.POKEMON_ID_ARG
 
-/*
-class PokedexNavigationRoute {
-}*/
+/* The ability to use serializable objects (specifically with Kotlin Serialization) for navigation routes
+* was introduced in 2.8.0. String routes are generally considered outdated now.
+* TODO - update this to use Nav 3
+*/
+
 sealed interface PokedexNavigationRoute {
     val route: String
 
