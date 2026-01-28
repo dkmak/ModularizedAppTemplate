@@ -25,14 +25,14 @@ core - Core components shared by all features
         - ProfileRepository
         - ProfileRepositoryImpl
         - provides the IO Disptacher as well
-    database - defines the local database (Room) for caching Pokemon Information
+    database - defines the local database (Room) for caching Information
         - DAO (Data Access Objects)
         - mappings between Entitys and Domain object
-    model - defines the Pokemon model used across multiple layers of the application
+    model - defines the model used across multiple layers of the application
     network - manages the remote data fetching and provides the API client to the data layer
 feature
-    home - UI, ViewModel logic for displaying the main list of Pokemon
-    profile - UI, ViewModel logic for displaying the detailed profile for a single Pokemon
+    home - UI, ViewModel 
+
 gradle
     libs.versions - manage libraries, versions
 build.gradle

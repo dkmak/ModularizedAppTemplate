@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.network"
+    namespace = "com.core.network"
     compileSdk = 36
 
     buildFeatures {
@@ -29,7 +29,6 @@ dependencies {
     implementation(platform (libs.okhttp.bom))
 
     implementation(libs.retrofit)
-    // This is the Retrofit converter for serialization
     implementation(libs.retrofit.kotlinx.serialization)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.okhttp.logging)

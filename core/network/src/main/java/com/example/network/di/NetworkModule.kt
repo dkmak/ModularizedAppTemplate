@@ -1,8 +1,6 @@
-package com.example.network.di
+package com.core.network.di
 
-import com.example.network.BuildConfig
-import com.example.network.service.PokedexService
-import com.example.network.service.PokedexClient
+import com.core.network.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -51,17 +49,5 @@ internal object NetworkModule {
             .baseUrl("https://pokeapi.co/api/v2/")
             .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()
-    }
-
-    @Provides
-    @Singleton
-    fun providePokedexService(retrofit: Retrofit): PokedexService {
-        return retrofit.create(PokedexService::class.java)
-    }
-
-    @Provides
-    @Singleton
-    fun providePokedexClient(pokedexService: PokedexService): PokedexClient {
-        return PokedexClient(pokedexService)
     }
 }

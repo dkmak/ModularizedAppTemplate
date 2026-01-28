@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt.plugin)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
@@ -52,7 +53,6 @@ android {
 
 dependencies {
     implementation(project(":feature:home"))
-    implementation(project(":feature:profile"))
     implementation(project(":core:common-ui"))
 
     implementation(libs.androidx.core)

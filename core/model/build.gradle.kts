@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.model"
+    namespace = "com.core.model"
     compileSdk = 36
 
     compileOptions {
@@ -20,9 +20,4 @@ android {
 dependencies {
     // Kotlin Serialization for Json
     implementation(libs.kotlinx.serialization.json)
-
-    // kotlinx
-    api(libs.kotlinx.immutable.collection)
-
-    compileOnly(libs.androidx.compose.runtime.annotation)
 }

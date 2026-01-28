@@ -1,4 +1,4 @@
-package com.core.network
+package com.core.database
 
 import org.junit.Test
 

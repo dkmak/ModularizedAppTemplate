@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.core.common.ui"
+    namespace = "com.core.common.ui"
     compileSdk = 36
 
     defaultConfig {

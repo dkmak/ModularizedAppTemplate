@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.feature.home"
+    namespace = "com.feature.home"
     compileSdk = 36
 
     buildFeatures {

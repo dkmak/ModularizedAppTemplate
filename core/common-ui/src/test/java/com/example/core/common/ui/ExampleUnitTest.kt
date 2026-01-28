@@ -1,4 +1,4 @@
-package com.example.core.common.ui
+package com.core.common.ui
 
 import org.junit.Test
 
