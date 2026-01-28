@@ -7,13 +7,13 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.kotlin.parcelize) apply false
     alias(libs.plugins.kotlinx.serialization) apply false
     alias(libs.plugins.ksp) apply false
-    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.hilt.plugin) apply false
 }
 
+/* TODO: DEAL WITH LATER
 
 plugins.withId(libs.plugins.android.application.get().pluginId){
     configure<com.android.build.api.dsl.ApplicationExtension> {
@@ -45,3 +45,4 @@ private fun setJvmToolchainAndCompileOptions(commonExtension: com.android.build.
         }
     }
 }
+*/
