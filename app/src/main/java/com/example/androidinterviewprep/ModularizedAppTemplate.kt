@@ -1,7 +1,7 @@
-package com.example.pokedexapp
+package com.modularizedapptemplate
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class PokedexApp : Application()
+class ModularizedAppTemplate : Application()

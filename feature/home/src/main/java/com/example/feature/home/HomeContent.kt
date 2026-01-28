@@ -26,8 +26,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.core.common.ui.theme.PokedexAppTheme
 import com.example.core.common.ui.theme.Green
+import com.example.core.common.ui.theme.ModularizedAppTemplateTheme
 import com.example.model.Pokemon
 
 @Composable
@@ -123,7 +123,7 @@ fun PokemonListItem(
 @Preview(showBackground = true)
 @Composable
 fun PreviewHomeContent() {
-    PokedexAppTheme {
+    ModularizedAppTemplateTheme {
         HomeContent(
             pokemonList = listOf(
                 Pokemon(
@@ -142,7 +142,7 @@ fun PreviewHomeContent() {
 @Preview(showBackground = true)
 @Composable
 fun PreviewHomeLoading() {
-    PokedexAppTheme {
+    ModularizedAppTemplateTheme {
         HomeContent(
             pokemonList = emptyList(),
             listState = rememberLazyListState(),

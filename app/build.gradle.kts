@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pokedexapp"
+    namespace = "com.modularizedapptemplate"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.pokedexapp"
+        applicationId = "com.modularizedapptemplate"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

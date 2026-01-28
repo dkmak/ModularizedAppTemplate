@@ -1,16 +1,8 @@
 # Pokedex App
 
 ## App
-An Android application utilizing the public Pokedex API (https://pokedexapi.com/) to display Pokemon as a list.
-It fetches paginated Pokemon data from the API, caches it to the local database, which then displays
-gets display list on the Home Screen. Users can click on a Pokemon from the list, which then goes 
-to the profile page and pulls that individual Pokemon's information from the local database and displays that to the user.
 
-More Information About Pokemon API
-
-https://pokeapi.co/
-
-https://pokeapi.co/docs/v2#resource-listspagination-section
+### How to Run Application
 
 ### Design Overview
 #### General Project Structure (Multi-Modular)
@@ -23,7 +15,7 @@ Multi-modular project setup enforces separation of concerns, improves build time
 app - Assembles all the feauture modules, defines navigation graph, houses the MainActivity
     main
         - MainActivity
-        - Navigation routes        
+        - Navigation routes (?)        
 core - Core components shared by all features
     common-ui - shared UI components, elements, themes, colors, resources, strings some navigation components
         - res (drawables, themes)
@@ -68,8 +60,6 @@ MVVM App Architecture - separate view from business logic from data
 - Testing: Junit, `kotlinx-coroutines-test`, `mockk`
 
 #### Things of Note
-- Unit Testing
-  - EntityMappers, ViewModel have unit tests 
 
 
 #### Potential Improvements

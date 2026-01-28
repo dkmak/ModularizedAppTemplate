@@ -1,4 +1,4 @@
-package com.example.pokedexapp
+package com.modularizedapptemplate
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -8,15 +8,15 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.core.common.ui.theme.ModularizedAppTemplateTheme
 
-import com.example.pokedexapp.navigation.PokedexNavigationRoute
-import com.example.core.common.ui.theme.PokedexAppTheme
+import com.modularizedapptemplate.navigation.PokedexNavigationRoute
 import com.example.feature.home.Home
 import com.example.feature.profile.Profile
 
 @Composable
 fun PokedexMainApp() {
-    PokedexAppTheme {
+    ModularizedAppTemplateTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background

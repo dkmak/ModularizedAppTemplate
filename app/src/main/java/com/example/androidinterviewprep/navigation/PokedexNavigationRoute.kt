@@ -1,4 +1,4 @@
-package com.example.pokedexapp.navigation
+package com.modularizedapptemplate.navigation
 
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavType
