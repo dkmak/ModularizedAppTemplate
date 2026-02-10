@@ -40,8 +40,9 @@ android {
         compose = true
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+
     }
 
     packagingOptions {
@@ -54,6 +55,7 @@ android {
 dependencies {
     implementation(project(":feature:home"))
     implementation(project(":core:common-ui"))
+    implementation(project(":core:navigation"))
 
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.runtime.ktx)
