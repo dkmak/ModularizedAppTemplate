@@ -1,4 +1,4 @@
-# Pokedex App
+# Modularized App
 
 ## App
 
@@ -12,26 +12,19 @@ Multi-modular project setup enforces separation of concerns, improves build time
 - Reusable - modules can easily be reused to create new screens and features 
 
 ```
-app - Assembles all the feauture modules, defines navigation graph, houses the MainActivity
+app -
     main
-        - MainActivity
-        - Navigation routes (?)        
+        - MainActivity 
 core - Core components shared by all features
     common-ui - shared UI components, elements, themes, colors, resources, strings some navigation components
         - res (drawables, themes)
-    data - implements the Repository pattern, create the single source of truth for the UI
-        - HomeRepository
-        - HomeRepositoryImpl
-        - ProfileRepository
-        - ProfileRepositoryImpl
-        - provides the IO Disptacher as well
-    database - defines the local database (Room) for caching Information
-        - DAO (Data Access Objects)
-        - mappings between Entitys and Domain object
-    model - defines the model used across multiple layers of the application
+    data 
+    database
+    model
+    navigation
     network - manages the remote data fetching and provides the API client to the data layer
 feature
-    home - UI, ViewModel 
+    
 
 gradle
     libs.versions - manage libraries, versions
@@ -40,15 +33,6 @@ settings.gradle
 ```
 
 #### App Architecture
-MVVM App Architecture - separate view from business logic from data
-- UI Layer: Composables in feature modules observe `StateFlow` exposed by the viewModel 
-  - Compose Navigation determines how to move between screens
-  - "Dumb" Content Holders: They just display data and handle click events
-- ViewModels (Domain Layer): ViewModels contain the presentation logic and handle user events
-  - isLoading
-  - determines when to fetch data
-- Data Layer: Uses the Repository pattern to abstract where the data is coming from 
-  - fetches the data and determines the correct way to process and restore it
 
 
 #### Libraries and Tools
@@ -63,6 +47,3 @@ MVVM App Architecture - separate view from business logic from data
 
 
 #### Potential Improvements
-- Better UI State Management
-- Separation of Domain Objects and How They Are Used
-- Additional Unit Testing in Networking Layer
