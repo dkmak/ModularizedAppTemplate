@@ -1,49 +1,62 @@
-# Modularized App
+# **Android App Template** - Darryl Mak
 
-## App
+(Description):
+1. **Action 1** - Display a list of available sports leagues
+2. **Action 2** - Browse teams within a selected league
+3. **Action 3** - View detailed information about a team
 
-### How to Run Application
-
-### Design Overview
-#### General Project Structure (Multi-Modular)
-Multi-modular project setup enforces separation of concerns, improves build times, and helps reusability.
-- Modules have distinct responsibilities
-- Gradle can build modules in parallel, changes to one module will only recompile that specific module the modules that it depend on it
-- Reusable - modules can easily be reused to create new screens and features 
-
-```
-app -
-    main
-        - MainActivity 
-core - Core components shared by all features
-    common-ui - shared UI components, elements, themes, colors, resources, strings some navigation components
-        - res (drawables, themes)
-    data 
-    database
-    model
-    navigation
-    network - manages the remote data fetching and provides the API client to the data layer
-feature
-    
-
-gradle
-    libs.versions - manage libraries, versions
-build.gradle
-settings.gradle    
-```
-
-#### App Architecture
+(insert visuals, video)
 
 
-#### Libraries and Tools
-- UI: Jetpack Compose, Compose Navigation, Coil
-- Dependency Injection: Dagger Hilt
-- Local Database: Room
-- Networking: Retrofit (and OkHTTP by extension), Kotlinx.Serialization for serializing JSON
-- Coroutines for asynchronous tasks
-- Testing: Junit, `kotlinx-coroutines-test`, `mockk`
+### Setup Instructions
+#### Prerequisites
+- Android Studio:
+- Java/JDK Version:
+- •Android SDK
+    - Compile SDK:
+    - Minimum SDK:
+- Gradle Version:
 
-#### Things of Note
+#### Open & Run Project
+1. Unzip the project
+2. Open Android Studio
+3. Select "Open" and choose the root project directory
+4. Let Gradle sync complete
+5. run unit tests with `./gradlew clean testDebugUnitTest`
 
+## Technical Details
 
-#### Potential Improvements
+### Architecture
+**MVVM** architecture
+- Clear separation of concerns between UI, domain, and data layers
+
+### UI
+- **Jetpack Compose**
+- Proper loading, error, and empty states
+
+### Networking
+- Integrate with [API](**insert api here**)
+- Handle network errors gracefully.
+- Proper error messages for the user.
+
+### Modularization
+- Implement features and other architectural components in separate modules.
+- Maintain proper dependency direction
+- Keep modules focused and single-purpose.
+
+### Testing
+- Includes unit tests for ViewModels and Repositories
+
+### Build Configuration
+- Debug and release build types are configured
+- ProGuard/R8 is enabled for release builds
+
+---
+
+## API Reference
+**Base URL:** `insert base url`
+
+| Endpoint                     | Description | Example |
+|------------------------------|---------|--------|
+| `ex1`                        | | N/A |
+| `ex2`                        | |  |
