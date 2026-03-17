@@ -8,9 +8,8 @@ android {
     namespace = "com.core.database"
     compileSdk = 36
 
-    defaultConfig {
-        minSdk = 24
 
+    defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -30,6 +29,11 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
 
     }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
 }
 
 ksp {
